@@ -1,0 +1,113 @@
+.header
+	position: fixed
+	top: 0
+	left: 0
+	z-index: 10
+	width: 100%
+	height: 70px
+	padding: 0 35px
+	background-color: rgba($COL_BASE, .8)
+.header_inner
+	position: relative
+	display: flex
+	flex-wrap: wrap
+	justify-content: space-between
+.header_head
+	padding: calc((70px - 24px) / 2) 0
+	.logo,.name
+		display: inline-block
+		vertical-align: middle
+	.logo
+		margin-right: 28px
+.menubtn
+	position: relative
+	z-index: 2
+	width: 35px
+	height: 22px
+	margin: calc((70px - 22px) / 2) 0
+	cursor: pointer
+	transition: transform .2s $transition_in
+	&:hover
+		span
+			&:nth-child(1)
+				top: 2px
+			&:nth-child(3)
+				bottom: 2px
+	span
+		position: absolute
+		left: 0
+		width: 100%
+		height: 2px
+		background-color: $COL_FONT_BASE
+		&:nth-child(1)
+			top: 0
+			transition: top .2s $transition_in, transform .2s $transition_in
+		&:nth-child(2)
+			top: 50%
+			transform: translateY(-50%)
+			transition: left .2s $transition_in, transform .2s $transition_in
+		&:nth-child(3)
+			bottom: 0
+			transition: bottom .2s $transition_in, transform .2s $transition_in
+	&[data-open=true]
+		span
+			&:nth-child(1)
+				top: 10.5px
+				transform: rotate(45deg)
+			&:nth-child(2)
+				left: 50vw
+			&:nth-child(3)
+				bottom: 10.5px
+				transform: rotate(-45deg)
+		&:hover
+			transform: scale(.8)
+		&+.gnav
+			right: 0
+			transition: right .2s $transition_out
+.gnav
+	position: fixed
+	top: 0
+	right: -100vw
+	width: 300px
+	height: 100vh
+	background-color: $COL_BASE
+	transition: right .3s $transition_in
+	nav
+		padding: 100px 30px
+	ul
+		margin-left: 20px
+		li
+			margin-top: 30px
+			li
+				span
+					&:before
+						content: "- "
+			span
+				position: relative
+				font-family: $FONT_DIN
+				color: $COL_FONT_BASE
+				+MIX_REM(20)
+				line-height: 1.2
+				letter-spacing: 0.1em
+				transition: color .2s
+			a
+				display: inline-block
+				position: relative
+				padding: 5px
+				&:before
+					content: ""
+					position: absolute
+					top: 0
+					left: 0
+					width: 0
+					height: 100%
+					background-color: $COL_FONT_BASE
+					transition: width .2s
+				&:hover
+					span
+						color: $COL_BASE
+					&:before
+						width: 100%
+
+
+// @media screen and (max-width: #{$break_point}px)

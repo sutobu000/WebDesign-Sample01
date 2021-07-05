@@ -1,0 +1,57 @@
+{
+  "name": "3bn_webtemplate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "delete:dist": "rimraf dist",
+    "copy:sitemapxml": "cpx \"src/sitemap.xml\" dist/",
+    "copy:robotstxt": "cpx \"src/robots.txt\" dist/",
+    "copy:manifestjson": "cpx \"src/manifest.json\" dist/",
+    "copy:faviconico": "cpx \"src/favicon.ico\" dist/",
+    "copy:apple-touch-iconpng": "cpx \"src/apple-touch-icon.png\" dist/",
+    "start:server": "browser-sync start -s dist -w dist/*.html dist/css/*.css dist/js/*.js",
+    "watch:pug2html": "pug src/pug/ --hierarchy -o dist/ -w -P",
+    "prepare:pug2html": "pug src/pug/ --hierarchy -o dist/",
+    "compile:css2cssprefix": "postcss dist/css/style.css -u autoprefixer -o dist/css/style.css",
+    "compile:sass2css": "node-sass src/sass/style.sass dist/css/style.css",
+    "compile:sass2cssprefix": "run-s compile:sass2css compile:css2cssprefix",
+    "watch:sass2cssprefix": "chokidar \"src/sass/\" --command \"npm run compile:sass2cssprefix\" --initial",
+    "min:css": "cleancss -o dist/css/style.css dist/css/style.css",
+    "watch:babel": "babel src/js/ -d dist/js/ -w",
+    "prepare:babel": "babel src/js/ -d dist/js/ --compact=true",
+    "watch:js": "cpx \"src/js/**/*.js\" dist/js/ -w",
+    "watch:img": "cpx \"src/img/**/*\" dist/img/ -w",
+    "delete:map": "rimraf dist/**/*.map",
+    "prewatch:all": "run-s delete:dist copy:sitemapxml copy:robotstxt copy:manifestjson copy:faviconico copy:apple-touch-iconpng",
+    "watch:all": "run-p watch:pug2html watch:sass2cssprefix watch:babel watch:img start:server",
+    "prepare:all": "run-p prepare:pug2html min:css prepare:babel delete:map"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sutobu000/3bn_webtenplate.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sutobu000/3bn_webtenplate/issues"
+  },
+  "homepage": "https://github.com/sutobu000/3bn_webtenplate#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.2.5",
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "browser-sync": "^2.26.14",
+    "chokidar-cli": "^2.1.0",
+    "clean-css-cli": "^5.3.0",
+    "cpx": "^1.5.0",
+    "node-sass": "^6.0.0",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.2.15",
+    "postcss-cli": "^8.3.1",
+    "pug-cli": "github:pugjs/pug-cli#master",
+    "rimraf": "^3.0.2"
+  },
+  "dependencies": {}
+}

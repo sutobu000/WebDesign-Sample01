@@ -1,0 +1,14 @@
+{
+  "name": "WebSite Name",
+  "short_name": "Web Name",
+	"description": "説明文",
+	"start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#FFF",
+  "icons": [{
+    "src": "apple-touch-icon.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  }]
+}

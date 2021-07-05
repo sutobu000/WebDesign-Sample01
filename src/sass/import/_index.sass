@@ -1,0 +1,149 @@
+.kv
+	position: relative
+	margin-top: 70px
+	padding-left: 70px
+.kv_inner
+	width: 100%
+	height: 50vh
+	min-height: 550px
+	background: url("./../img/kv.jpg") center center no-repeat
+		size: cover
+.kv_head
+	position: absolute
+	top: 50%
+	left: 70px
+	padding: 27px 42px
+	background-color: $COL_BASE
+	transform: translateY(-50%)
+	span
+		color: $COL_FONT_BASE
+		font-family: $FONT_DIN
+		+MIX_REM(42)
+		line-height: 1.5
+		letter-spacing: 0.1em
+
+.section
+	padding: 0 35px
+	&+.section
+		margin-top: 120px
+.inner
+.section_kv
+	position: relative
+	width: 100%
+	height: 550px
+	h2
+		mix-blend-mode: difference
+		color: $COL_BASE
+		font-family: $FONT_DIN
+		+MIX_REM(128)
+		line-height: 1
+		letter-spacing: 0.1em
+.section_head
+	span
+		display: inline-block
+		margin-top: 20px
+		padding: 0 5px
+		background: $COL_BASE
+		font-family: $FONT_MIN
+		+MIX_REM(24)
+		line-height: 1.5
+		letter-spacing: 0.1em
+.content
+	margin: 100px 0
+	p
+		font-family: $FONT_BASE
+		+MIX_REM(16)
+		line-height: 2
+		letter-spacing: 0.1em
+		text-align: center
+		&+p
+			margin-top: 2em
+.link
+	ul
+		display: flex
+		justify-content: space-around
+	li
+		width: 300px
+		text-align: center
+		a
+			position: relative
+			display: block
+			padding: 23px 0
+			border:
+				top: 1px solid $COL_FONT_BASE
+				bottom: 1px solid $COL_FONT_BASE
+			overflow: hidden
+			&:before
+				content: ""
+				position: absolute
+				top: calc(50% - 3.5px)
+				right: 28px
+				width: 10px
+				border-bottom: 1px solid $COL_FONT_BASE
+				opacity: 0
+				transform: rotate(45deg)
+				transition: right .2s, opacity .2s
+			&:after
+				content: ""
+				position: absolute
+				top: 50%
+				right: 29.2px
+				width: 28px
+				border-bottom: 1px solid $COL_FONT_BASE
+				opacity: 0
+				transition: right .2s, opacity .2s
+			&:hover
+				&:before
+					right: 8px
+					opacity: 1
+				&:after
+					right: 9.2px
+					opacity: 1
+		span
+			color: $COL_FONT_BASE
+			font-family: $FONT_MIN
+			+MIX_REM(24)
+			line-height: 1
+			letter-spacing: 0.1em
+			transition: color .2s
+
+.section-feature
+	.section_kv
+		background: url(./../img/feature.jpg) center center no-repeat
+			size: cover
+		h2
+			position: absolute
+			top: 30px
+			right: 20px
+	.section_head
+		position: absolute
+		bottom: 35px
+		left: 35px
+.section-works
+	.section_kv
+		background: url(./../img/works.jpg) center center no-repeat
+			size: cover
+		h2
+			position: absolute
+			top: 30px
+			left: 20px
+	.section_head
+		position: absolute
+		bottom: 35px
+		right: 35px
+		text-align: right
+.section-contact
+	.section_kv
+		background: url(./../img/contact.jpg) center left no-repeat
+			size: cover
+		h2
+			position: absolute
+			top: 50%
+			left: 50%
+			transform: translate(-50%, -50%)
+	.section_head
+		position: absolute
+		top: 35px
+		right: 35px
+		text-align: right
+

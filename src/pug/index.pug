@@ -1,0 +1,108 @@
+extends _include/_layout
+block vars
+	- var _title_str = 'LP Site Template'; // title
+	- var _desc_str = 'LPサイトの参考テンプレート。npm scriptでpug,sassでコーディングしています。参考程度にご利用ください。作者:KidoYuta'; // descriptions
+	- var _keys_str = 'template, lp'; // keywords
+
+block link
+	//- link(rel='stylesheet', href"")
+block body
+	.container
+		section.kv
+			.kv_inner
+				.kv_head
+					span
+						| Sample
+						br
+						| WebSite
+						br
+						| Design
+
+		section.section
+			.inner
+				.content
+					p
+						| このWebサイトは、
+						br
+						| 3BNのKidoYutaによる
+						br
+						| Webサイトデザインのサンプルの一つです。
+					p
+						| こんなデザインのWebサイトを作ってほしい！
+						br
+						| という方は、是非ご連絡ください。
+
+		section.section.section-feature
+			.inner
+				.section_kv
+					h2 FEATURE
+					p.section_head
+						span 豆に生きて、
+						br
+						span 馬鹿になってしまおう。
+				.content
+					p
+						| このWebサイトは、
+						br
+						| 3BNのKidoYutaによる
+						br
+						| Webサイトデザインのサンプルの一つです。
+					p
+						| こんなデザインのWebサイトを作ってほしい！
+						br
+						| という方は、是非ご連絡ください。
+				.link
+					ul
+						li: a(href="./business/"): span BUSINESS
+						li: a(href="./about/"): span ABOUT US
+
+		section.section.section-works
+			.inner
+				.section_kv
+					h2 WORKS
+					p.section_head
+						span 極限まで
+						br
+						span 作品と向き合おう
+				.content
+					p
+						| このWebサイトは、
+						br
+						| 3BNのKidoYutaによる
+						br
+						| Webサイトデザインのサンプルの一つです。
+					p
+						| こんなデザインのWebサイトを作ってほしい！
+						br
+						| という方は、是非ご連絡ください。
+				.link
+					ul
+						li: a(href="./works/"): span WORKS
+
+		section.section.section-contact
+			.inner
+				.section_kv
+					h2 CONTACT
+					p.section_head
+						span その出会いも、
+						br
+						span 一期一会。
+				.content
+					p
+						| このWebサイトは、
+						br
+						| 3BNのKidoYutaによる
+						br
+						| Webサイトデザインのサンプルの一つです。
+					p
+						| こんなデザインのWebサイトを作ってほしい！
+						br
+						| という方は、是非ご連絡ください。
+				.link
+					ul
+						li: a(href="./contact/"): span CONTACT
+
+
+block script
+	//- ページ固有のjs
+	//- script(src=DIR_JS +"index.js")

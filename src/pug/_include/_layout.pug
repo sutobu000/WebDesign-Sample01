@@ -1,0 +1,88 @@
+- var DOMAIN = "https://archive.sutobu000.com/design01"
+- var BASE_DOMAIN = "./"
+- var DIR_IMG = BASE_DOMAIN + "img/"
+- var DIR_IMG_CMN = BASE_DOMAIN + "img/common/"
+- var DIR_CSS = BASE_DOMAIN + "css/"
+- var DIR_JS = BASE_DOMAIN + "js/"
+
+- var TWITTER_NAME = "@Twitterのユーザー名"
+
+block vars
+
+doctype html
+html(lang='ja')
+	head(prefix='og: http://ogp.me/ns# website: http://ogp.me/ns/website#')
+		meta(charset='utf-8')
+		title #{_title_str}
+		//- Page Setting
+		meta(http-equiv='X-UA-Compatible', content='IE=edge')
+		meta(name='description', content=_desc_str)
+		meta(name='keywords', content=_keys_str)
+		meta(property="og:title", content=_title_str)
+		meta(property="og:type", content="website")
+		meta(property="og:description", content=_desc_str)
+		meta(property="og:url", content=DOMAIN + "/")
+		meta(property="og:image", content=DOMAIN + DIR_IMG + "ogp.jpg")
+		meta(name="twitter:card", content="summary_large_image")
+		meta(name="twitter:site", content=TWITTER_NAME)
+		meta(name='viewport', content='width=device-width,user-scalable=yes')
+		meta(name='mobile-web-app-capable', content='yes')
+		link(rel='shortcut icon', href=DOMAIN + '/favicon.ico')
+
+		script.
+			(function(d) {
+				var config = {kitId: 'opw8zjf', scriptTimeout: 3000, async: true},
+				h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+			})(document);
+		link(rel="stylesheet" href="https://use.typekit.net/llo5fcj.css")
+
+		link(rel='stylesheet', href=DIR_CSS + "style.css")
+
+		script(src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js")
+		script(src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/ScrollToPlugin.min.js")
+
+		block link
+
+	body(id=_page_id)
+		.wrapper
+			header.header
+				.header_inner
+					.header_head
+						h1.logo: img(src=DIR_IMG + "logo_bk.png", width="53" height="24" alt="LOGOのイメージ")
+						.name: img(src=DIR_IMG + "title.png", width="122", height="16", alt="Sample WebSite Designのイメージ")
+					button.menubtn
+						span 
+						span 
+						span 
+					.gnav
+						nav
+							ul
+								li: a(href=DOMAIN + "/"): span HOME
+								li
+									span FEATURE
+									ul
+										li: a(href=DOMAIN + "/business/"): span BUSINESS
+										li: a(href=DOMAIN + "/about/"): span ABOUT US
+								li: a(href=DOMAIN + "/works/"): span WORKS
+								li: a(href=DOMAIN + "/contact/"): span CONTACT
+
+			main.main
+				block body
+
+			footer.footer
+				.footer_head: img(src=DIR_IMG + "logo_wh.png", width="52", height="23", alt="Logoのイメージ")
+				nav.footer_nav
+					ul
+						li: a(href=DOMAIN + "/"): span HOME
+						li
+							span FEATURE
+							ul
+								li: a(href=DOMAIN + "/business/"): span BUSINESS
+								li: a(href=DOMAIN + "/about/"): span ABOUT US
+						li: a(href=DOMAIN + "/works/"): span WORKS
+						li: a(href=DOMAIN + "/contact/"): span CONTACT
+				.pageTop
+
+	//- 全体共通のjs
+	script(src=DIR_JS + "index.js")
+	block script

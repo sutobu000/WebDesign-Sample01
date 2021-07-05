@@ -1,0 +1,6 @@
+# 全クローラーを対象
+User-agent: *
+# Disallow: /policy
+# Allow: /policy
+
+# Sitemap: http://example.com/sitemap.xml

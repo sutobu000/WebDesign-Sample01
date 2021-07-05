@@ -1,0 +1,39 @@
+.kv
+	padding-left: 0
+.kv_inner
+	min-height: 360px
+.kv_head
+	left: 50%
+	transform: translate(-50%, -50%)
+	span
+		+MIX_FONT_VW(36)
+
+.section
+	padding: 0 15px
+.section_kv
+	h2
+		+MIX_FONT_VW(82)
+.section_head
+	span
+		margin-top: #{20/$base_vw*100}vw
+		padding: 5px 10px
+		+MIX_FONT_VW(24)
+.link
+	ul
+		display: block
+	li
+		width: 80%
+		margin: 0 auto
+		&+li
+			margin-top: 50px
+		a
+			padding: 20px 0
+		span
+			+MIX_FONT_VW(24)
+
+
+
+.section-contact
+	.section_kv
+		background: url(./../img/contact.jpg) center left no-repeat
+			size: cover

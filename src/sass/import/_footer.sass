@@ -1,0 +1,48 @@
+.footer
+	display: flex
+	align-items: center
+	margin-top: 260px
+	padding: 95px 70px
+	background: $COL_FONT_BASE
+.footer_head
+	width: 50%
+	text-align: center
+	img
+		display: inline-block
+		width: 52px
+		height: 23px
+.footer_nav
+	width: 50%
+	ul
+		padding: 0 20px
+	li
+		li
+			span
+				&:before
+					content: "- "
+		a
+			display: inline-block
+			position: relative
+			&:before
+				content: ""
+				position: absolute
+				top: 0
+				left: 0
+				width: 0
+				height: 100%
+				background-color: $COL_BASE
+				transition: width .2s
+			&:hover
+				&:before
+					width: 100%
+				span
+					color: $COL_FONT_BASE
+		span
+			position: relative
+			padding: 0 5px
+			color: $COL_BASE
+			font-family: $FONT_DIN
+			+MIX_REM(16)
+			line-height: 2
+			letter-spacing: 0.1em
+			transition: color .2s
