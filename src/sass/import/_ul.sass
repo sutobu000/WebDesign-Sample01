@@ -1,0 +1,143 @@
+.ulPage
+	display: flex
+	justify-content: flex-end
+	align-items: center
+	.visual
+		position: fixed
+		top: 0
+		left: 0
+		width: 50vw
+		height: 100vh
+		&[data-type="business"]
+			background: url("./../img/visual_business.jpg") no-repeat center center
+				size: cover
+		&[data-type="about"]
+			background: url("./../img/visual_about.jpg") no-repeat center center
+				size: cover
+		&[data-type="contact"]
+			background: url("./../img/visual_contact.jpg") no-repeat center center
+				size: cover
+
+	.detail
+		width: 50vw
+	.section
+		display: flex
+		align-items: center
+		width: 100%
+		height: 100vh
+	.inner
+		width: 70%
+		height: auto
+		margin: 0 auto
+	.head
+		text-align: center
+		color: $COL_FONT_BASE
+		font-family: $FONT_DIN
+		+MIX_REM(128)
+		line-height: 1
+		letter-spacing: 0.1em
+	.content
+		margin: 100px 0
+		p
+			font-family: $FONT_BASE
+			+MIX_REM(16)
+			line-height: 2
+			letter-spacing: 0.1em
+			text-align: center
+			&+p,&+ul
+				margin-top: 2em
+		ul
+			margin: 0 auto
+			+MIX_REM(16)
+			&+ul
+				margin-top: 2em
+		li
+			span, &::before
+				font-family: $FONT_BASE
+				+MIX_REM(16)
+				line-height: 2
+				letter-spacing: 0.1em
+			&::before
+				content: "◇"
+		dl
+			display: grid
+			grid-template-columns: 1fr 2fr
+			+MIX_REM(16)
+			&+dl
+				margin-top: 2em
+		dt, dd
+				font-family: $FONT_BASE
+				+MIX_REM(16)
+				line-height: 2
+				letter-spacing: 0.1em
+		form
+		label
+			display: grid
+			grid-template-columns: 1fr 2fr
+			&+label
+				margin-top: 30px
+			span
+				font-family: $FONT_BASE
+				+MIX_REM(16)
+				line-height: 2
+				letter-spacing: 0.1em
+			input[type="text"], input[type="email"], textarea
+				padding: 5px
+				border: 1px solid $COL_MAIN
+				font-family: $FONT_BASE
+				+MIX_REM(16)
+				line-height: 2
+				letter-spacing: 0.1em
+				&:focus
+					border: 1px solid $COL_ACCENT
+					background-color: $COL_SUB2
+		.check
+			display: block
+			text-align: center
+			input[type="checkbox"]
+				&:checked
+					&+span
+						&::after
+							transform: translateY(-50%) rotate(45deg)
+							opacity: 1
+			span
+				position: relative
+				padding-left: 26px
+				&::before, &::after
+					content: ""
+					display: block
+					position: absolute
+				&::before
+					top: 50%
+					left: 0
+					transform: translateY(-50%)
+					width: 16px
+					height: 16px
+					border: 1px solid $COL_FONT_BASE
+				&::after
+					top: calc(50% - 2px)
+					left: 6px
+					transform: translateY(-50%) rotate(135deg)
+					width: 5px
+					height: 9px
+					border-right: 1px solid $COL_FONT_BASE
+					border-bottom: 1px solid $COL_FONT_BASE
+					opacity: 0
+					transition: .1s opacity, .2s transform
+
+		.submit
+			display: block
+			margin: 30px auto 0
+			width: 200px
+			padding: 5px
+			border: 1px solid $COL_MAIN
+			font-family: $FONT_BASE
+			+MIX_REM(16)
+			line-height: 2
+			letter-spacing: 0.1em
+			text-align: center
+			cursor: pointer
+			&:hover
+				color: $COL_MAIN
+				border: 1px solid $COL_ACCENT
+				background-color: $COL_SUB2

@@ -1,0 +1,52 @@
+extends ../_include/_layout
+block vars
+	- var _title_str = 'LP Site Template'; // title
+	- var _desc_str = 'LPサイトの参考テンプレート。npm scriptでpug,sassでコーディングしています。参考程度にご利用ください。作者:KidoYuta'; // descriptions
+	- var _keys_str = 'template, lp'; // keywords
+
+block link
+	//- link(rel='stylesheet', href"")
+block body
+	.container.ulPage
+		.visual(data-type="contact")
+		.detail
+			section.section
+				.inner
+					h2.head CONTACT
+					.content
+						p
+							| このWebサイトは、
+							br
+							| 3BNのKidoYutaによる
+							br
+							| Webサイトデザインのサンプルの一つです。
+						p
+							| こんなデザインのWebサイトを作ってほしい！
+							br
+							| という方は、是非ご連絡ください。
+
+
+			section.section
+				.inner
+					.content
+						form
+							label(for="name")
+								span Name
+								input#name(type="text", name="name", required)
+							label(for="email")
+								span Mail
+								input#email(type="email", name="email", required)
+							label(for="subject")
+								span Subject
+								input#subject(type="text", name="subject", required)
+							label(for="content")
+								span Content
+								textarea#content(name="content", rows="5", placeholder="このフォームはデモのため送信されません" ,required)
+							label.check(for="privacy") 
+								input#privacy(type="checkbox", required)
+								span プライバシーポリシーに同意する
+							input.submit(type="submit", value="Send")
+
+block script
+	//- ページ固有のjs
+	//- script(src=DIR_JS +"index.js")

@@ -1,0 +1,105 @@
+.workPage
+	.kv
+		position: relative
+		margin-top: 70px
+	.kv_inner
+		width: 100%
+		height: 50vh
+		min-height: 550px
+		background: url("./../../img/visual_works.jpg") center center no-repeat
+			size: cover
+	.kv_head
+		position: absolute
+		top: 50%
+		left: 50%
+		padding: 27px 42px
+		background-color: $COL_BASE
+		transform: translate(-50%, -50%)
+		span
+			color: $COL_FONT_BASE
+			font-family: $FONT_DIN
+			+MIX_REM(42)
+			line-height: 1.5
+			letter-spacing: 0.1em
+	.content
+		margin: 100px 0
+		p
+			font-family: $FONT_BASE
+			+MIX_REM(16)
+			line-height: 2
+			letter-spacing: 0.1em
+			text-align: center
+			&+p
+				margin-top: 2em
+		ul
+			display: flex
+			flex-wrap: wrap
+			justify-content: space-around
+			row-gap: 66px
+			*
+				transition: none
+		li
+			display: flex
+			align-items: center
+			justify-content: center
+			width: calc(100% / 3 - 66px)
+			&:target
+				width: 80vw
+				height: 80vh
+				.close
+					opacity: 1
+					visibility: visible
+				.detail
+					height: 100%
+		article
+			cursor: pointer
+			position: relative
+			.close
+				position: absolute
+				top: -50px
+				right: -50px
+				width: 30px
+				height: 30px
+				background-color: $COL_MAIN
+				opacity: 0
+				visibility: hidden
+				&::before, &::after
+					content: ""
+					position: absolute
+					top: 50%
+					left: 50%
+					width: 20px
+					height: 1px
+					background-color: $COL_BASE
+				&::before
+					transform: translate(-50%,-50%) rotate(45deg)
+				&::after
+					transform: translate(-50%,-50%) rotate(-45deg)
+			img
+				max-width: 100%
+				margin: 0 auto 10px
+			.cate
+				max-width: 100%
+				margin: 0 auto
+				span
+					color: $COL_FONT_BASE
+					font-family: $FONT_BASE
+					+MIX_REM(12)
+					line-height: 2
+					letter-spacing: 0.1em
+			h3
+				max-width: 100%
+				margin: 0 auto
+				color: $COL_FONT_BASE
+				font-family: $FONT_BASE
+				+MIX_REM(16)
+				line-height: 2
+				letter-spacing: 0.1em
+			.detail
+				max-width: 100%
+				height: 0
+				margin: 30px auto 0
+				overflow: hidden
+				p
+					color: $COL_FONT_BASE
+					text-align: left

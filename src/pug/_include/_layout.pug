@@ -1,5 +1,5 @@
 - var DOMAIN = "https://archive.sutobu000.com/design01"
-- var BASE_DOMAIN = "./"
+- var BASE_DOMAIN = DOMAIN + "/"
 - var DIR_IMG = BASE_DOMAIN + "img/"
 - var DIR_IMG_CMN = BASE_DOMAIN + "img/common/"
 - var DIR_CSS = BASE_DOMAIN + "css/"
@@ -48,7 +48,7 @@ html(lang='ja')
 			header.header
 				.header_inner
 					.header_head
-						h1.logo: img(src=DIR_IMG + "logo_bk.png", width="53" height="24" alt="LOGOのイメージ")
+						h1.logo: a(href=DOMAIN): img(src=DIR_IMG + "logo_bk.png", width="53" height="24" alt="LOGOのイメージ")
 						.name: img(src=DIR_IMG + "title.png", width="122", height="16", alt="Sample WebSite Designのイメージ")
 					button.menubtn
 						span 

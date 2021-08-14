@@ -1,0 +1,44 @@
+extends ../_include/_layout
+block vars
+	- var _title_str = 'BUSINESS | LP Site Template'; // title
+	- var _desc_str = 'LPサイトの参考テンプレート。npm scriptでpug,sassでコーディングしています。参考程度にご利用ください。作者:KidoYuta'; // descriptions
+	- var _keys_str = 'template, lp'; // keywords
+
+block link
+	//- link(rel='stylesheet', href"")
+block body
+	.container.ulPage
+		.visual(data-type="business")
+		.detail
+			section.section
+				.inner
+					h2.head BUSINESS
+					.content
+						p
+							| このWebサイトは、
+							br
+							| 3BNのKidoYutaによる
+							br
+							| Webサイトデザインのサンプルの一つです。
+						p
+							| こんなデザインのWebサイトを作ってほしい！
+							br
+							| という方は、是非ご連絡ください。
+
+			section.section
+				.inner
+					h2.head PROJECT1
+					.content
+						p
+							| Webサイト以外にも以下のような
+							br
+							| コンテンツの依頼も受け付けています。
+						ul
+							li: span Webデザイン・Web構築・CSS設計
+							li: span ロゴデザイン・名刺デザイン
+							li: span チラシデザイン・フライヤー作成
+							li: span 動画制作・動画編集
+
+block script
+	//- ページ固有のjs
+	//- script(src=DIR_JS +"index.js")

@@ -67,9 +67,9 @@ if(userSet.globalNav.isBtnOnly){
 	$gnav = document.querySelector("."+userSet.globalNav.class);
 }
 
-/*--- アンカーリンク処理 --- */
-let $ancLink = document.querySelectorAll("a[href^='#']")
-let ancTopArr = [];
+// /*--- アンカーリンク処理 --- */
+// let $ancLink = document.querySelectorAll("a[href^='#']")
+// let ancTopArr = [];
 
 /* --- pageTop --- */
 let $pageTop = document.querySelector("."+userSet.pageTop.class);
@@ -114,23 +114,23 @@ document.addEventListener("DOMContentLoaded", () => {
 let readyInit = () => {
 	// console.log("init start");
 
-	// アンカーリンク
-	for (let ancCount = 0; ancCount < $ancLink.length; ancCount++) {
-		if(!$ancLink[ancCount].hasAttribute("noscroll")){
-			let ancObj = document.getElementById($ancLink[ancCount].getAttribute("href").slice(1));
-			ancTopArr[ancCount] = _sTop + ancObj.getBoundingClientRect().top
-			$ancLink[ancCount].addEventListener("click", function(e) {
-				e.preventDefault();
-				let href = this.getAttribute("href");
-				scrollAnc(href, userSet.anchorLink.duration, ancTopArr[ancCount]);
-				if(is_open) {
-					var menuBtnEvent = document.createEvent("MouseEvents");
-					menuBtnEvent.initEvent("click", false, true);
-					$menuBtn.dispatchEvent(menuBtnEvent);
-				}
-			})
-		}
-	}
+	// // アンカーリンク
+	// for (let ancCount = 0; ancCount < $ancLink.length; ancCount++) {
+	// 	if(!$ancLink[ancCount].hasAttribute("noscroll")){
+	// 		let ancObj = document.getElementById($ancLink[ancCount].getAttribute("href").slice(1));
+	// 		ancTopArr[ancCount] = _sTop + ancObj.getBoundingClientRect().top
+	// 		$ancLink[ancCount].addEventListener("click", function(e) {
+	// 			e.preventDefault();
+	// 			let href = this.getAttribute("href");
+	// 			scrollAnc(href, userSet.anchorLink.duration, ancTopArr[ancCount]);
+	// 			if(is_open) {
+	// 				var menuBtnEvent = document.createEvent("MouseEvents");
+	// 				menuBtnEvent.initEvent("click", false, true);
+	// 				$menuBtn.dispatchEvent(menuBtnEvent);
+	// 			}
+	// 		})
+	// 	}
+	// }
 
 	/* sliSL と stgSL */
 	let wscroll = _sTop + wh;
@@ -144,22 +144,22 @@ let readyInit = () => {
 }
 
 
-/* -----------------------------------------------
- * アンカークリック
- * ----------------------------------------------- */
-let scrollAnc = ($object, $speed, $scroll) => {
-	let hash = $object;
-	let $target;
-	let t_hash;
-	let h_h = document.querySelector(".header").clientHeight; // scrollToの位置の差異を作る
+// /* -----------------------------------------------
+//  * アンカークリック
+//  * ----------------------------------------------- */
+// let scrollAnc = ($object, $speed, $scroll) => {
+// 	let hash = $object;
+// 	let $target;
+// 	let t_hash;
+// 	let h_h = document.querySelector(".header").clientHeight; // scrollToの位置の差異を作る
 
-	if(hash==="#") {
-		t_hash = 0;
-	} else {
-		t_hash = $scroll;
-	}
-	gsap.to(window, {duration:$speed, scrollTo:t_hash-h_h});
-}
+// 	if(hash==="#") {
+// 		t_hash = 0;
+// 	} else {
+// 		t_hash = $scroll;
+// 	}
+// 	gsap.to(window, {duration:$speed, scrollTo:t_hash-h_h});
+// }
 
 /* -----------------------------------------------
  * ページトップ スクロール
