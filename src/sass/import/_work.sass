@@ -45,15 +45,47 @@
 			width: calc(100% / 3 - 66px)
 			&:target
 				width: 80vw
-				height: 80vh
+				a:not(.close)
+					pointer-events: none
+					cursor: crosshair
+					&::before,&::after
+						content: none
 				.close
 					opacity: 1
 					visibility: visible
 				.detail
 					height: 100%
 		article
-			cursor: pointer
 			position: relative
+			a
+				display: block
+				&::before
+					content: ""
+					position: absolute
+					bottom: 8.5px
+					right: 8px
+					width: 10px
+					border-bottom: 1px solid $COL_FONT_BASE
+					opacity: 1
+					transform: rotate(45deg)
+					transition: right .2s, opacity .2s
+				&::after
+					content: ""
+					position: absolute
+					bottom: 5px
+					right: 9.2px
+					width: 28px
+					border-bottom: 1px solid $COL_FONT_BASE
+					opacity: 1
+					transition: right .2s, opacity .2s
+				&:hover
+					&::before
+						right: 0px
+						opacity: 1
+					&::after
+						right: 1.2px
+						opacity: 1
+
 			.close
 				position: absolute
 				top: -50px
