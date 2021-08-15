@@ -23,10 +23,10 @@ const userSet = {
 	},
 	slide:{
 		duration: .3, // デフォルトのduration。単位秒
-		value: 100, // デフォルトのスライド方向の量。単位px
+		value: 0, // デフォルトのスライド方向の量。単位px
 		delay: .7, // デフォルトの処理実施のDelay。単位秒
 		stgDur: .15, // デフォルトのstaggerのduration。単位秒
-		stgVal: 20, // デフォルトのstaggerのスライド方向の量。単位px
+		stgVal: 0, // デフォルトのstaggerのスライド方向の量。単位px
 		stgDelay: .7, // デフォルトのstaggerのDelay。単位秒
 		singleClass: "js-sliSL", // gsapによるtranslateのスライド処理を追加(-left,-right,-top,-bottomで方向を指定)
 		multiClass: "js-stgSL", // gsapのstaggerによるchildrenのtranslateのスライド処理を追加(-left,-right,-top,-bottomで方向を指定)
@@ -38,7 +38,6 @@ const userSet = {
 		}
 	}
 }
-
 
 
 /* ========================================================================
@@ -263,9 +262,9 @@ let sliSLAnime = ($obj) => {
 	let SLIdur = userSet.slide.duration;
 	let SLIval = userSet.slide.value;
 	let SLIdelay = userSet.slide.delay;
-	if(Number.isInteger($obj.getAttribute(userSet.slide.data.sliDuration))){ SLIdur = Number($obj.getAttribute(userSet.slide.data.sliDuration)); }
-	if(Number.isInteger($obj.getAttribute(userSet.slide.data.sliValue))){ SLIval = $obj.getAttribute(userSet.slide.data.sliValue); }
-	if(Number.isInteger($obj.getAttribute(userSet.slide.data.sliDelay))){ SLIdelay = $obj.getAttribute(userSet.slide.data.sliDelay); }
+	if($obj.getAttribute(userSet.slide.data.sliDuration)){ SLIdur = Number($obj.getAttribute(userSet.slide.data.sliDuration)); }
+	if($obj.getAttribute(userSet.slide.data.sliValue)){ SLIval = Number($obj.getAttribute(userSet.slide.data.sliValue)); }
+	if($obj.getAttribute(userSet.slide.data.sliDelay)){ SLIdelay = Number($obj.getAttribute(userSet.slide.data.sliDelay)); }
 	if($obj.classList.contains(userSet.slide.singleClass+"-left")){
 		gsap.fromTo($obj, {duration:SLIdur, x:-1*SLIval,opacity:0},{x:0,opacity:1,delay:SLIdelay,onComplete: () => {
 			$obj.removeAttribute("style");
@@ -306,40 +305,40 @@ let stgSLInAnime = ($obj) => {
 	let stgSLIval = userSet.slide.stgVal;
 	let stgSLIdelay = userSet.slide.stgDelay;
 	let stgSLIfrom = "start"
-	if(Number.isInteger($obj.getAttribute(userSet.slide.data.sliDuration))) stgSLIdur = Number($obj.getAttribute(userSet.slide.data.sliDuration));
-	if(Number.isInteger($obj.getAttribute(userSet.slide.data.sliValue))) stgSLIval = Number($obj.getAttribute(userSet.slide.data.sliValue));
-	if(Number.isInteger($obj.getAttribute(userSet.slide.data.sliDelay))) stgSLIdelay = Number($obj.getAttribute(userSet.slide.data.sliDelay));
+	if($obj.getAttribute(userSet.slide.data.sliDuration)) stgSLIdur = Number($obj.getAttribute(userSet.slide.data.sliDuration));
+	if($obj.getAttribute(userSet.slide.data.sliValue)) stgSLIval = Number($obj.getAttribute(userSet.slide.data.sliValue));
+	if($obj.getAttribute(userSet.slide.data.sliDelay)) stgSLIdelay = Number($obj.getAttribute(userSet.slide.data.sliDelay));
 	if($obj.getAttribute(userSet.slide.data.sliFrom)) stgSLIfrom = $obj.getAttribute(userSet.slide.data.sliFrom);
 	if($obj.classList.contains(userSet.slide.multiClass+"-left")){
-		gsap.fromTo($obj.children, {duration:stgSLInAnime, x:-1*stgSLIval,opacity:0},{x:0,opacity:1,delay:stgSLIdelay, stagger:{amount:stgSLIdur,from:stgSLIfrom}, onComplete:function(){
+		gsap.fromTo($obj.children, {duration:stgSLIdur, x:-1*stgSLIval,opacity:0},{x:0,opacity:1,delay:stgSLIdelay, stagger:{amount:stgSLIdur,from:stgSLIfrom}, onComplete:function(){
 			for(let i = 0; i < $obj.children.length; i++){
 				$obj.children[i].removeAttribute("style");
 			}
 			$obj.classList.remove(userSet.slide.multiClass, userSet.slide.multiClass+"-left");
 		}});
 	}else if($obj.classList.contains(userSet.slide.multiClass+"-right")){
-		gsap.fromTo($obj.children, {duration:stgSLInAnime, x:stgSLIval,opacity:0},{x:0,opacity:1,delay:stgSLIdelay, stagger:{amount:stgSLIdur,from:stgSLIfrom}, onComplete:function(){
+		gsap.fromTo($obj.children, {duration:stgSLIdur, x:stgSLIval,opacity:0},{x:0,opacity:1,delay:stgSLIdelay, stagger:{amount:stgSLIdur,from:stgSLIfrom}, onComplete:function(){
 			for(let i = 0; i < $obj.children.length; i++){
 				$obj.children[i].removeAttribute("style");
 			}
 			$obj.classList.remove(userSet.slide.multiClass, userSet.slide.multiClass+"-right");
 		}});
 	}else if($obj.classList.contains(userSet.slide.multiClass+"-top")){
-		gsap.fromTo($obj.children, {duration:stgSLInAnime, y:-1*stgSLIval,opacity:0},{y:0,opacity:1,delay:stgSLIdelay, stagger:{amount:stgSLIdur,from:stgSLIfrom}, onComplete:function(){
+		gsap.fromTo($obj.children, {duration:stgSLIdur, y:-1*stgSLIval,opacity:0},{y:0,opacity:1,delay:stgSLIdelay, stagger:{amount:stgSLIdur,from:stgSLIfrom}, onComplete:function(){
 			for(let i = 0; i < $obj.children.length; i++){
 				$obj.children[i].removeAttribute("style");
 			}
 			$obj.classList.remove(userSet.slide.multiClass, userSet.slide.multiClass+"-top");
 		}});
 	}else if($obj.classList.contains(userSet.slide.multiClass+"-bottom")){
-		gsap.fromTo($obj.children, {duration:stgSLInAnime, y:stgSLIval,opacity:0},{y:0,opacity:1,delay:stgSLIdelay, stagger:{amount:stgSLIdur,from:stgSLIfrom}, onComplete:function(){
+		gsap.fromTo($obj.children, {duration:stgSLIdur, y:stgSLIval,opacity:0},{y:0,opacity:1,delay:stgSLIdelay, stagger:{amount:stgSLIdur,from:stgSLIfrom}, onComplete:function(){
 			for(let i = 0; i < $obj.children.length; i++){
 				$obj.children[i].removeAttribute("style");
 			}
 			$obj.classList.remove(userSet.slide.multiClass, userSet.slide.multiClass+"-bottom");
 		}});
 	}else{
-		gsap.fromTo($obj.children, {duration:stgSLInAnime, y:stgSLIval,opacity:0},{y:0,opacity:1,delay:stgSLIdelay, stagger:{amount:stgSLIdur,from:stgSLIfrom}, onComplete:function(){
+		gsap.fromTo($obj.children, {duration:stgSLIdur, y:stgSLIval,opacity:0},{y:0,opacity:1,delay:stgSLIdelay, stagger:{amount:stgSLIdur,from:stgSLIfrom}, onComplete:function(){
 			for(let i = 0; i < $obj.children.length; i++){
 				$obj.children[i].removeAttribute("style");
 			}
